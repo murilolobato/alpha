@@ -1,5 +1,9 @@
 'use strict';
 
+if (process.env.NODE_ENV !== 'development' && process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test') {
+    throw new Error('NODE_ENV was not supplied or is invalid: \'' + process.env.NODE_ENV + '\'');
+}
+
 const Hapi = require('hapi');
 const Good = require('good');
 
@@ -14,7 +18,10 @@ server.register([
         register: require('vision')
     },
     {
-        register: require('blipp')
+        register: require('blipp'),
+        options: {
+            showStart: process.env.NODE_ENV === 'development'
+        }
     },
     {
         register: Good,

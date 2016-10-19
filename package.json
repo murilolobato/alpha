@@ -4,7 +4,8 @@
   "description": "Test project",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Haha no tests\""
+    "start": "set NODE_ENV=production && node server.js",
+    "test": "echo \"Soooon...\""
   },
   "author": "Murilo Lobato",
   "license": "ISC",
