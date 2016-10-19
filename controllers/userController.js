@@ -4,13 +4,13 @@ const Moment = require('moment');
 
 const userController = {
     register: function (server, options, next) {
-        
+
         server.route({
             method: 'GET',
             path: '/',
             handler: function (request, reply) {
 
-                let now = new Date();
+                const now = new Date();
 
                 reply.view('user/index', { name: Moment(now).calendar() });
             }
@@ -20,6 +20,7 @@ const userController = {
             method: 'GET',
             path: '/{name}',
             handler: function (request, reply) {
+
                 reply('Hello, ' + encodeURIComponent(request.params.name) + '!');
             }
         });

@@ -34,23 +34,23 @@ server.register([
         }
     }], (err) => {
 
-        if (err) {
-            throw err; // something bad happened loading the plugin
-        }
+    if (err) {
+        throw err; // something bad happened loading the plugin
+    }
 
-        server.views({
-            engines: {
-                html: require('handlebars')
-            },
-            relativeTo: __dirname,
-            path: 'templates'
-        });
-
-        server.start((err) => {
-
-            if (err) {
-                throw err;
-            }
-            server.log('info', 'Server running at: ' + server.info.uri);
-        });
+    server.views({
+        engines: {
+            html: require('handlebars')
+        },
+        relativeTo: __dirname,
+        path: 'templates'
     });
+
+    server.start((err) => {
+
+        if (err) {
+            throw err;
+        }
+        server.log('info', 'Server running at: ' + server.info.uri);
+    });
+});
