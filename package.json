@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "NODE_ENV=production node server.js",
+    "nodemon": "./node_modules/.bin/nodemon",
     "test": "./node_modules/.bin/lab"
   },
   "author": "Murilo Lobato",
@@ -26,6 +27,7 @@
     "eslint-config-google": "^0.7.0",
     "eslint-config-hapi": "^10.0.0",
     "eslint-plugin-hapi": "^4.0.0",
-    "lab": "^11.1.0"
+    "lab": "^11.1.0",
+    "nodemon": "^1.11.0"
   }
 }
