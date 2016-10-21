@@ -12,7 +12,7 @@ server.connection({ port: 3000 });
 
 server.register([
     {
-        register: require('./app/controllers/userController')
+        register: require('./src/controllers/userController')
     },
     {
         register: require('vision')
@@ -50,7 +50,7 @@ server.register([
             html: require('handlebars')
         },
         relativeTo: __dirname,
-        path: 'app/templates'
+        path: 'src/templates'
     });
 
     server.start((err) => {
