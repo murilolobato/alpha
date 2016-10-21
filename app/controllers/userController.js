@@ -1,7 +1,5 @@
 'use strict';
 
-const Moment = require('moment');
-
 const userController = {
     register: function (server, options, next) {
 
@@ -10,18 +8,20 @@ const userController = {
             path: '/',
             handler: function (request, reply) {
 
-                const now = new Date();
+                const users = [];
 
-                reply.view('user/index', { name: Moment(now).calendar() });
+                reply.view('user/index', { users: users });
             }
         });
 
         server.route({
             method: 'GET',
-            path: '/{name}',
+            path: '/{id}',
             handler: function (request, reply) {
 
-                reply('Hello, ' + encodeURIComponent(request.params.name) + '!');
+                const user = { id: request.params.id };
+
+                reply('user/show', { user: user });
             }
         });
 

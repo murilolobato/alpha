@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "set NODE_ENV=production && node server.js",
-    "test": "echo \"Soooon...\""
+    "test": "./node_modules/.bin/lab"
   },
   "author": "Murilo Lobato",
   "license": "ISC",
@@ -21,9 +21,11 @@
     "vision": "^4.1.0"
   },
   "devDependencies": {
+    "code": "^4.0.0",
     "eslint": "^3.8.1",
     "eslint-config-google": "^0.7.0",
     "eslint-config-hapi": "^10.0.0",
-    "eslint-plugin-hapi": "^4.0.0"
+    "eslint-plugin-hapi": "^4.0.0",
+    "lab": "^11.1.0"
   }
 }
