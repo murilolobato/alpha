@@ -4,7 +4,7 @@
   "description": "Test project",
   "main": "server.js",
   "scripts": {
-    "start": "set NODE_ENV=production && node server.js",
+    "start": "NODE_ENV=production node server.js",
     "test": "./node_modules/.bin/lab"
   },
   "author": "Murilo Lobato",
