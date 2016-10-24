@@ -5,23 +5,26 @@ const userController = {
 
         server.route({
             method: 'GET',
-            path: '/',
+            path: '/users',
             handler: function (request, reply) {
 
-                const users = [];
+                const users = [
+                    { id: 1, name: 'Foo' },
+                    { id: 2, name: 'Bar' }
+                ];
 
-                reply.view('user/index', { users: users });
+                return reply(users);
             }
         });
 
         server.route({
             method: 'GET',
-            path: '/{id}',
+            path: '/users/{id}',
             handler: function (request, reply) {
 
-                const user = { id: request.params.id };
+                const user = { id: request.params.id, name: 'Foo' };
 
-                reply('user/show', { user: user });
+                return reply(user);
             }
         });
 

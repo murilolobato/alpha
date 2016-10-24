@@ -12,7 +12,7 @@ server.connection({ port: 3000 });
 
 server.register([
     {
-        register: require('./src/controllers/userController')
+        register: require('./src/controllers/api/userController')
     },
     {
         register: require('vision')
@@ -53,11 +53,16 @@ server.register([
         path: 'src/templates'
     });
 
-    server.start((err) => {
+    if (process.env.NODE_ENV !== 'test') {
+        server.start((err) => {
 
-        if (err) {
-            throw err;
-        }
-        server.log('info', 'Server running at: ' + server.info.uri);
-    });
+            if (err) {
+                throw err;
+            }
+
+            server.log('info', 'Server running at: ' + server.info.uri);
+        });
+    }
 });
+
+module.exports = server;
