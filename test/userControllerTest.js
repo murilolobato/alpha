@@ -26,6 +26,13 @@ describe('functional tests - UserController', () => {
 
             expect(response.statusCode).to.equal(200);
             expect(response.result).to.have.length(2);
+
+            response.result.forEach((item) => {
+                expect(item).to.include(['id', 'name']);
+                expect(item.id).to.be.a.number();
+                expect(item.name).to.be.a.string();
+            });
+
             done();
         });
     });
@@ -38,6 +45,9 @@ describe('functional tests - UserController', () => {
         }, (response) => {
 
             expect(response.statusCode).to.equal(200);
+            expect(response.result).to.include(['id', 'name']);
+            expect(response.result.id).to.be.a.number();
+            expect(response.result.name).to.be.a.string();
             done();
         });
     });

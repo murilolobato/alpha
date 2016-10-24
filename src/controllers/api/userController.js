@@ -22,7 +22,7 @@ const userController = {
             path: '/users/{id}',
             handler: function (request, reply) {
 
-                const user = { id: request.params.id, name: 'Foo' };
+                const user = { id: parseInt(request.params.id, 10), name: 'Foo' };
 
                 return reply(user);
             }
