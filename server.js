@@ -12,7 +12,10 @@ server.connection({ port: 3000 });
 
 server.register([
     {
-        register: require('./app/controllers/userController')
+        register: require('inert'),
+    },
+    {
+        register: require('./app/controllers/defaultController')
     },
     {
         register: require('vision')
