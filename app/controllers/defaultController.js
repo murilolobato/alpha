@@ -17,7 +17,7 @@ const defaultController = {
 
         server.route({
             method: 'GET',
-            path: '/{aaa*}',
+            path: '/{assets*}',
             handler: {
                 directory: {
                     path: 'public',

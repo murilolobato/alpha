@@ -26414,88 +26414,114 @@
 
 /***/ },
 /* 228 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
-	var MainLayout = React.createClass({
-	    displayName: "MainLayout",
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(173);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var MainLayout = _react2.default.createClass({
+	    displayName: 'MainLayout',
 	
 	    render: function render() {
 	        // Note the `className` rather than `class`
 	        // `class` is a reserved word in JavaScript, so JSX uses `className`
 	        // Ultimately, it will render with a `class` in the DOM
-	        return React.createElement(
-	            "div",
-	            { className: "app" },
-	            React.createElement("header", { className: "primary-header" }),
-	            React.createElement(
-	                "aside",
-	                { className: "primary-aside" },
-	                React.createElement(
-	                    "ul",
+	        return _react2.default.createElement(
+	            'div',
+	            { className: 'app' },
+	            _react2.default.createElement('header', { className: 'primary-header' }),
+	            _react2.default.createElement(
+	                'aside',
+	                { className: 'primary-aside' },
+	                _react2.default.createElement(
+	                    'ul',
 	                    null,
-	                    React.createElement(
-	                        "li",
+	                    _react2.default.createElement(
+	                        'li',
 	                        null,
-	                        React.createElement(
-	                            Link,
-	                            { to: "/" },
-	                            "Home"
+	                        _react2.default.createElement(
+	                            _reactRouter.Link,
+	                            { to: '/' },
+	                            'Home'
 	                        )
 	                    ),
-	                    React.createElement(
-	                        "li",
+	                    _react2.default.createElement(
+	                        'li',
 	                        null,
-	                        React.createElement(
-	                            Link,
-	                            { to: "/users" },
-	                            "Users"
+	                        _react2.default.createElement(
+	                            _reactRouter.Link,
+	                            { to: '/users' },
+	                            'Users'
 	                        )
 	                    ),
-	                    React.createElement(
-	                        "li",
+	                    _react2.default.createElement(
+	                        'li',
 	                        null,
-	                        React.createElement(
-	                            Link,
-	                            { to: "/widgets" },
-	                            "Widgets"
+	                        _react2.default.createElement(
+	                            _reactRouter.Link,
+	                            { to: '/widgets' },
+	                            'Widgets'
 	                        )
 	                    )
 	                )
 	            ),
-	            React.createElement(
-	                "main",
+	            _react2.default.createElement(
+	                'main',
 	                null,
 	                this.props.children
 	            )
 	        );
 	    }
 	});
+	
+	exports.default = MainLayout;
 
 /***/ },
 /* 229 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var SearchLayout = React.createClass({
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var SearchLayout = _react2.default.createClass({
 	    displayName: "SearchLayout",
 	
 	    render: function render() {
-	        return React.createElement(
+	        return _react2.default.createElement(
 	            "div",
 	            { className: "search" },
-	            React.createElement("header", { className: "search-header" }),
-	            React.createElement(
+	            _react2.default.createElement("header", { className: "search-header" }),
+	            _react2.default.createElement(
 	                "div",
 	                { className: "results" },
 	                this.props.children
 	            ),
-	            React.createElement("div", { className: "search-footer pagination" })
+	            _react2.default.createElement("div", { className: "search-footer pagination" })
 	        );
 	    }
 	});
+	
+	exports.default = SearchLayout;
 
 /***/ },
 /* 230 */
@@ -26563,83 +26589,42 @@
 /* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRouter = __webpack_require__(173);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var UserList = _react2.default.createClass({
-	  displayName: 'UserList',
+	    displayName: "UserList",
 	
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'ul',
-	      { className: 'user-list' },
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: 'users/2' },
-	          'Michael'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: 'users/1' },
-	          'Ryan'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: 'users/3' },
-	          'Dan'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: 'users/4' },
-	          'Matt'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: 'users/5' },
-	          'Tobias'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: 'users/6' },
-	          'Sebastian'
-	        )
-	      )
-	    );
-	  }
+	    render: function render() {
+	        return _react2.default.createElement(
+	            "ul",
+	            { className: "user-list" },
+	            _react2.default.createElement(
+	                "li",
+	                null,
+	                "Dan"
+	            ),
+	            _react2.default.createElement(
+	                "li",
+	                null,
+	                "Ryan"
+	            ),
+	            _react2.default.createElement(
+	                "li",
+	                null,
+	                "Michael"
+	            )
+	        );
+	    }
 	});
 	
 	exports.default = UserList;

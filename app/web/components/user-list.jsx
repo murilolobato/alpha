@@ -1,4 +1,6 @@
-var UserList = React.createClass({
+import React from 'react';
+
+const UserList = React.createClass({
     render: function() {
         return (
             <ul className="user-list">
@@ -9,3 +11,5 @@ var UserList = React.createClass({
         );
     }
 });
+
+export default UserList;

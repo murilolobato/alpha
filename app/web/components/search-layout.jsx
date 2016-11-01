@@ -1,3 +1,5 @@
+import React from 'react';
+
 var SearchLayout = React.createClass({
     render: function() {
         return (
@@ -11,3 +13,5 @@ var SearchLayout = React.createClass({
         );
     }
 });
+
+export default SearchLayout;

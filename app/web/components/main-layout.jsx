@@ -1,3 +1,6 @@
+import React from 'react';
+import { Link } from 'react-router'
+
 var MainLayout = React.createClass({
     render: function() {
         // Note the `className` rather than `class`
@@ -20,3 +23,5 @@ var MainLayout = React.createClass({
         );
     }
 });
+
+export default MainLayout;
