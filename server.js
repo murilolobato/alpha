@@ -10,6 +10,8 @@ const Good = require('good');
 const server = new Hapi.Server();
 server.connection({ port: 3000 });
 
+require('babel-core/register')();
+
 server.register([
     {
         register: require('inert'),
@@ -49,11 +51,9 @@ server.register([
     }
 
     server.views({
-        engines: {
-            html: require('handlebars')
-        },
+        engines: { html: require('handlebars') },
         relativeTo: __dirname,
-        path: 'app/templates'
+        path: 'app/web/templates'
     });
 
     server.start((err) => {
