@@ -1,4 +1,5 @@
 const path = require('path');
+const Webpack = require('webpack');
 
 module.exports = {
     entry: "./src/web/app.js",
@@ -10,6 +11,13 @@ module.exports = {
         sourceMapFilename: "public/js/bundle.map"
     },
     devtool: '#source-map',
+    plugins: [
+        new Webpack.DefinePlugin({
+            'process.env':{
+                'NODE_ENV': JSON.stringify('production')
+            }
+        })
+    ],
     module: {
         loaders: [
             {
