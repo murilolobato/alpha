@@ -10,8 +10,6 @@ const Good = require('good');
 const server = new Hapi.Server();
 server.connection({ port: 3000 });
 
-require('babel-core/register')();
-
 server.register([
     {
         register: require('inert'),
