@@ -15,7 +15,7 @@ server.register([
         register: require('inert'),
     },
     {
-        register: require('./app/controllers/defaultController')
+        register: require('./controllers/defaultController')
     },
     {
         register: require('vision')
@@ -51,7 +51,7 @@ server.register([
     server.views({
         engines: { html: require('handlebars') },
         relativeTo: __dirname,
-        path: 'app/web/templates'
+        path: './web/templates'
     });
 
     server.start((err) => {
