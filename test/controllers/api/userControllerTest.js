@@ -32,11 +32,11 @@ describe('functional tests - UserController', () => {
         });
     });
 
-    it('should get single product', (done) => {
+    it('should get a single user', (done) => {
 
         Server.inject({
             method: 'GET',
-            url: '/api/products/1'
+            url: '/user/1'
         }, (response) => {
 
             expect(response.statusCode).to.equal(200);
