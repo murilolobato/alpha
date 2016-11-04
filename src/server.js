@@ -8,14 +8,17 @@ const Hapi = require('hapi');
 const Good = require('good');
 
 const server = new Hapi.Server();
-server.connection({ port: 3000 });
+server.connection({ port: 3001 });
 
 server.register([
     {
-        register: require('inert'),
+        register: require('inert')
     },
     {
-        register: require('./controllers/defaultController')
+        register: require('./controllers/web/defaultController')
+    },
+    {
+        register: require('./controllers/api/userController')
     },
     {
         register: require('vision')
@@ -42,23 +45,30 @@ server.register([
                 }, 'stdout']
             }
         }
-    }], (err) => {
-
-    if (err) {
-        throw err; // something bad happened loading the plugin
-    }
-
-    server.views({
-        engines: { html: require('handlebars') },
-        relativeTo: __dirname,
-        path: './web/templates'
-    });
-
-    server.start((err) => {
+    }],
+    (err) => {
 
         if (err) {
-            throw err;
+            throw err; // something bad happened loading the plugin
         }
-        server.log('info', 'Server running at: ' + server.info.uri);
-    });
-});
+
+        server.views({
+            engines: { html: require('handlebars') },
+            relativeTo: __dirname,
+            path: './web/templates'
+        });
+
+        if (process.env.NODE_ENV !== 'test') {
+            server.start((err) => {
+
+                if (err) {
+                    throw err;
+                }
+
+                server.log('info', 'Server running at: ' + server.info.uri);
+            });
+        }
+    }
+);
+
+module.exports = server;

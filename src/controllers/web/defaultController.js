@@ -3,8 +3,8 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
-import routes from '../web/router';
-import NotFoundPage from '../web/components/not-found';
+import routes from '../../web/router';
+import NotFoundPage from '../../web/components/not-found';
 
 const defaultController = {
     register: function (server, options, next) {
