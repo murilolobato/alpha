@@ -6,6 +6,8 @@ if (process.env.NODE_ENV !== 'development' && process.env.NODE_ENV !== 'producti
 
 const Hapi = require('hapi');
 const Good = require('good');
+const Mongoose = require('mongoose');
+const Getconfig = require('getconfig');
 
 const server = new Hapi.Server();
 server.connection({ port: 3001 });
@@ -58,16 +60,25 @@ server.register([
             path: './web/templates'
         });
 
-        if (process.env.NODE_ENV !== 'test') {
-            server.start((err) => {
+        Mongoose.connect(Getconfig.mongodb_connection_string);
+        const connection = Mongoose.connection;
 
-                if (err) {
-                    throw err;
-                }
+        connection.once('open', () => {
 
-                server.log('info', 'Server running at: ' + server.info.uri);
-            });
-        }
+            // Connected!
+            server.log('info', 'Mongoose connection successfully opened.');
+
+            if (process.env.NODE_ENV !== 'test') {
+                server.start((err) => {
+
+                    if (err) {
+                        throw err;
+                    }
+
+                    server.log('info', 'Server running at: ' + server.info.uri + '.');
+                });
+            }
+        });
     }
 );
 
