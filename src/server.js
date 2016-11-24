@@ -10,7 +10,7 @@ const Mongoose = require('mongoose');
 const Getconfig = require('getconfig');
 
 const server = new Hapi.Server();
-server.connection({ port: 3001 });
+server.connection({ port: 3000 });
 
 server.register([
     {

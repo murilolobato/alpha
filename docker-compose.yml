@@ -1,0 +1,11 @@
+alpha_database:
+    image: mongo
+alpha:
+    build: .
+    volumes:
+        - .:/home/node/app
+    links:
+        - alpha_database
+    ports:
+        - 3000:3000
+    tty: true
