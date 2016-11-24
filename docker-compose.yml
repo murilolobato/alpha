@@ -3,9 +3,9 @@ alpha_database:
 alpha:
     build: .
     volumes:
-        - .:/usr/src/app
-        - /usr/src/app/node_modules
+        - .:/home/node/app
     links:
         - alpha_database
     ports:
         - 3000:3000
+    tty: true
